@@ -1,9 +1,18 @@
-import { Button } from "@/components/ui/button";
+"use client";
+
+import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import Header from "./_components/header";
 import Hero from "./_components/hero";
+import { useEffect } from "react";
 
 
 export default function Home() {
+    const { user } = useKindeBrowserClient();
+
+    useEffect(() => {
+        console.log(user);
+    }, [user])
+
     return (
         <div>
             <div
@@ -19,6 +28,6 @@ export default function Home() {
             </div>
         <Header />
         <Hero />
-    </div>
+        </div>
     );
 }

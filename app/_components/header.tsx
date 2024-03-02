@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
+import { LoginLink, RegisterLink } from '@kinde-oss/kinde-auth-nextjs';
 import { Box } from 'lucide-react';
-import { Terminal } from 'lucide-react';
 
 
 function Header() {
@@ -54,13 +54,17 @@ function Header() {
                     </div>
                     <div className="flex items-center gap-4">
                         <div className="sm:flex sm:gap-4">
-                            <Button variant="outline">
-                                Sign In
-                            </Button>
-                            <div className="hidden sm:flex">
-                                <Button variant="default">
-                                    Sign Up                                   
+                            <LoginLink postLoginRedirectURL='/dashboard'>
+                                <Button variant="outline">
+                                    Sign In
                                 </Button>
+                            </LoginLink>
+                            <div className="hidden sm:flex">
+                                <RegisterLink>
+                                    <Button variant="default">
+                                        Sign Up
+                                    </Button>
+                                </RegisterLink>                                   
                             </div>
                         </div>
                         <div className="block md:hidden">
